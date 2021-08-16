@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  quarkus-hello-world:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.native
+    image: quarkus/quarkus-hello-world
+    ports:
+      - "8080:8080"
+  quarkus-hello-world-multistage:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.multistage
+    image: quarkus/hello-world-multistage
+    network_mode: host
+    ports:
+      - "8080:8080"
+
